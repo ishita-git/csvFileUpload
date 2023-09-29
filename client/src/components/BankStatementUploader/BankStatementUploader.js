@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './bankStatementUploader.scss'
-import axios from 'axios';
+// import axios from 'axios';
+import axiosInstance from '../../axios/axiosInstances';
 
 const BankStatementUploader = () => {
 
@@ -15,7 +16,7 @@ const BankStatementUploader = () => {
           const formData = new FormData();
           formData.append('file', file);
     
-          const response = await axios.post('/upload-csv', formData, {
+          const response = await axiosInstance.post('/upload-csv', formData, {
             headers: {
               'Content-Type': 'multipart/form-data',
             },

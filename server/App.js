@@ -5,7 +5,9 @@ const path = require('path');
 const bodyParser = require('body-parser');
 
 // Middleware
-app.use(cors()); // Enable CORS if needed
+app.use(cors({
+  origin: '*'
+})); // Enable CORS if needed
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
